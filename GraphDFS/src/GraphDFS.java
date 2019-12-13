@@ -8,6 +8,7 @@ public class GraphDFS {
     // result of dfs
     private List<Integer> preorder = new ArrayList<>();
     private List<Integer> postorder = new ArrayList<>();
+    private int connectedComponentNum;
 
     public GraphDFS(Graph graph) {
         this.graph = graph;
@@ -16,6 +17,7 @@ public class GraphDFS {
         for (int v = 0; v < graph.getV(); v++) {
             if (!visited[v]) {
                 dfs(v);
+                connectedComponentNum++;
             }
         }
     }
@@ -41,10 +43,15 @@ public class GraphDFS {
         return postorder;
     }
 
+    public int getConnectedComponentNum() {
+        return connectedComponentNum;
+    }
+
     public static void main(String[] args) {
         Graph graph = new Graph("GraphDFS/graph.txt");
         GraphDFS graphDFS = new GraphDFS(graph);
         System.out.println(graphDFS.getPreorder());
         System.out.println(graphDFS.getPostorder());
+        System.out.println("Connected components number: " + graphDFS.getConnectedComponentNum());
     }
 }
