@@ -42,6 +42,11 @@ public class SingleSourcePath {
         return visited[t];
     }
 
+    /**
+     * get the path from source to t
+     * @param t
+     * @return
+     */
     public Iterable<Integer> path(int t) {
         List<Integer> result = new ArrayList<>();
         if (isConnectedTo(t)) {
