@@ -14,7 +14,9 @@
 ###### 2.6 All Pairs Path
 ###### 2.7 Path
 ###### 2.8 Cycle Detection
-
-
+###### 2.9 Bipartite Detection
 
 #### 3. Graph BFS
+###### 3.1 Graph (Adjacency Set)
+###### 3.2 Graph BFS (Iteration)
+###### 3.3 
