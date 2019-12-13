@@ -13,6 +13,7 @@ public class Path {
 
     public Path(Graph graph, int source, int destination) {
         graph.validateVertex(source); // validate source vertex
+        graph.validateVertex(destination); // validate destination vertex
 
         this.graph = graph;
         this.source = source;
