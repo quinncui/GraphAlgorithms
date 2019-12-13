@@ -1,60 +1,59 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class Path {
 
     private Graph graph;
-    private int source;
-    private int destination;
+    private int source, destination;
+
+    private int[] pre;
     private boolean[] visited;
-    private int[] pre; // store the previous vertex of each vertex
 
     public Path(Graph graph, int source, int destination) {
-        graph.validateVertex(source); // validate source vertex
-        graph.validateVertex(destination); // validate destination vertex
-
+        graph.validateVertex(source);
+        graph.validateVertex(destination);
         this.graph = graph;
         this.source = source;
         this.destination = destination;
-
         visited = new boolean[graph.getV()];
         pre = new int[graph.getV()];
         Arrays.fill(pre, -1);
-        dfs(source, source);
+        bfs();
+
+        for (boolean e : visited) {
+            System.out.print(e + " ");
+        }
+        System.out.println();
     }
 
-    private boolean dfs(int vertex, int parent) {
-        visited[vertex] = true;
-        pre[vertex] = parent;
-        if (vertex == destination) {
-            return true;
+    public void bfs() {
+        Queue<Integer> queue = new LinkedList<>();
+        queue.add(source);
+        visited[source] = true;
+        pre[source] = source;
+
+        if (source == destination) {
+            return;
         }
-        for (int w : graph.neighbors(vertex)) {
-            if (!visited[w]) {
-                if (dfs(w, vertex)) {
-                    return true;
+
+        while (!queue.isEmpty()) {
+            int v = queue.remove();
+            for (int w : graph.neighbors(v)) {
+                if (!visited[w]) {
+                    queue.add(w);
+                    visited[w] = true;
+                    pre[w] = v;
+                    if (w == destination) {
+                        return;
+                    }
                 }
             }
         }
-        return false;
     }
 
-    /**
-     * if vertex destination is connected to the source, they are connected if t has been visited
-     * @param
-     * @return
-     */
     public boolean isConnectedTo() {
         return visited[destination];
     }
 
-    /**
-     * get the path from source to destination
-     * @param
-     * @return
-     */
     public Iterable<Integer> path() {
         List<Integer> result = new ArrayList<>();
         if (isConnectedTo()) {
@@ -70,7 +69,7 @@ public class Path {
     }
 
     public static void main(String[] args) {
-        Graph graph = new Graph("GraphDFS/graph.txt");
+        Graph graph = new Graph("GraphBFS/graph.txt");
         Path path = new Path(graph, 0, 6);
         System.out.println("Path 0 -> 6: " + path.path());
 

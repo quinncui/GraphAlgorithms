@@ -2,7 +2,7 @@ public class CycleDetection {
 
     private Graph graph;
     private boolean[] visited;
-    private boolean hasCylcle = false;
+    private boolean hasCycle = false;
 
     public CycleDetection(Graph graph) {
         this.graph = graph;
@@ -11,7 +11,7 @@ public class CycleDetection {
         for (int v = 0; v < graph.getV(); v++) {
             if (!visited[v]) {
                 if (dfs(v, v)) {
-                    hasCylcle = true;
+                    hasCycle = true;
                     break; // if a cycle already detected in the graph, break;
                 }
             }
@@ -41,16 +41,16 @@ public class CycleDetection {
     }
 
     public boolean hasCycle() {
-        return hasCylcle;
+        return hasCycle;
     }
 
     public static void main(String[] args) {
         Graph graph = new Graph("GraphDFS/graph.txt");
         CycleDetection cycleDetection = new CycleDetection(graph);
-        System.out.println(cycleDetection.hasCylcle);
+        System.out.println(cycleDetection.hasCycle());
 
         Graph graph2 = new Graph("GraphDFS/graph2.txt");
         CycleDetection cycleDetection2 = new CycleDetection(graph2);
-        System.out.println(cycleDetection2.hasCylcle);
+        System.out.println(cycleDetection2.hasCycle());
     }
 }
