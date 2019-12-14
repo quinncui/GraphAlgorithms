@@ -6,7 +6,7 @@
 ###### 1.3 Adjacency Set
 
 ###### Comparison
-|       | Space| Time | check if two <br> nodes connected | check adjacent <br> edges of a node |
+|       | Space Complexity of <br>Graph Construction | Time Complexity of <br> Graph Construction | verify if two <br> nodes connected | find neighbors <br> of a node |
 | :---: | :---: | :---: | :---: | :---: |
 |Adjacency Matrix| O (V ^ 2) | O(E) | O(1) |  O(V) |
 |Adjacency List   | O (V + E)     | O(E) <br> O(E*V) if check duplicates   | O(degree(v)) <br> O(V) | O(degree(v)) <br> O(V) |
