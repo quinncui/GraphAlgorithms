@@ -8,7 +8,6 @@ public class GraphDFSIteration {
     private boolean[] visited;
     // result of dfs
     private List<Integer> preorder = new ArrayList<>();
-    private Stack<Integer> stack = new Stack<>();
 
     public GraphDFSIteration(Graph graph) {
         this.graph = graph;
@@ -22,6 +21,7 @@ public class GraphDFSIteration {
     }
 
     private void dfs(int vertex) {
+        Stack<Integer> stack = new Stack<>();
         stack.push(vertex);
         visited[vertex] = true;
         while (!stack.isEmpty()) {

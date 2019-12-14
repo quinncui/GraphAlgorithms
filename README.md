@@ -16,6 +16,37 @@
 ###### 2.8 Cycle Detection
 ###### 2.9 Bipartite Detection
 
+###### DFS Recursion Core
+```java
+    private void dfs(int vertex) {
+        visited[vertex] = true;
+        preorder.add(vertex);
+        for (int w : graph.neighbors(vertex)) {
+            if (!visited[w]) {
+                dfs(w);
+            }
+        }
+    }
+```
+###### DFS Iteration Core
+```java
+    private void dfs(int vertex) {
+        Stack<Integer> stack = new Stack<>();
+        stack.push(vertex);
+        visited[vertex] = true;
+        while (!stack.isEmpty()) {
+            int cur = stack.pop();
+            preorder.add(cur);
+            for (int v : graph.neighbors(cur)) {
+                if (!visited[v]) {
+                    stack.push(v);
+                    visited[v] = true;
+                }
+            }
+        }
+    }
+```
+
 #### 3. Graph BFS
 ###### 3.1 Graph (Adjacency Set)
 ###### 3.2 Graph BFS (Iteration)
@@ -25,5 +56,23 @@
 ###### 3.6 Components
 ###### 3.7 Cycle Detection
 ###### 3.8 Bipartite Detection
-###### 3.9 Unweighted Single Source Shortest Path
+###### 3.9 Unweighted Single Source Shortest Path 
+###### BFS Iteration Core
 
+```java
+    public void bfs(int vertex) {
+        Queue<Integer> queue = new LinkedList<>();
+        queue.add(vertex);
+        visited[vertex] = true;
+        while (!queue.isEmpty()) {
+            int v = queue.remove();
+            order.add(v);
+            for (int w : graph.neighbors(v)) {
+                if (!visited[w]) {
+                    queue.add(w);
+                    visited[w] = true;
+                }
+            }
+        }
+    }
+```
