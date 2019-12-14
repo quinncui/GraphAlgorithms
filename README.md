@@ -5,6 +5,13 @@
 ###### 1.2 Adjacency List
 ###### 1.3 Adjacency Set
 
+###### Comparison
+|       | Space| Time | check if two <br> nodes connected | check adjacent <br> edges of a node |
+| :---: | :---: | :---: | :---: | :---: |
+|Adjacency Matrix| O (V ^ 2) | O(E) | O(1) |  O(V) |
+|Adjacency List   | O (V + E)     | O(E) <br> O(E*V) if check duplicates   | O(degree(v)) <br> O(V) | O(degree(v)) <br> O(V) |
+|Adjacency Set| O (V + E) | O(ElogV) | O(logV) | O(degree(v)) <br> O(V) |
+
 #### 2. Graph DFS
 ###### 2.1 Graph (Adjacency Set)
 ###### 2.2 Graph DFS (Recursion)
