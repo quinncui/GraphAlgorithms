@@ -93,5 +93,9 @@
 #### 5. Graph Search Algorithms & AI
 ###### 5.1 BFS - Shortest Path in Binary Matrix (leetcode 1091)
 ###### 5.2 State Representation - Open the Lock (leetcode 752)
+###### 5.2 State Representation - Water Bucket
+###### 5.3 Sliding Puzzle (leetcode 773)
+
+
 
 

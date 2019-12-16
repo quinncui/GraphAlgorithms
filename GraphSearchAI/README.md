@@ -13,3 +13,8 @@ get to the goal
 We have a bucket with capacity of 5 gallons water, another one with capacity of 3 gallons water, how do we get 4 gallons water by these buckets?
 
 - From one state we can get next 6 different states: x, y -> (5, y) or (x, 3) or (0, y) or (x, 0) or (x -> y) or (x <- y)
+
+
+##### 5.3 Sliding Puzzle (leetcode 773)
+
+- Time Complexity O(n!) : O(V + E) = O(V + 4V) = O(V)
