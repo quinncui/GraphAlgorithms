@@ -76,10 +76,22 @@
             order.add(v);
             for (int w : graph.neighbors(v)) {
                 if (!visited[w]) {
-                    queue.add(w);
-                    visited[w] = true;
+                    queue .add(w);
+                    visited[w] = true; 
                 }
             }
         }
     }
 ```
+
+#### 4. Graph Modeling & Floodfill
+###### 4.1 IsBipartite (leetcode 785)
+###### 4.2 Max Area of Island (leetcode 695)
+###### 4.3 Max Area of Island by Union Find
+
+
+#### 5. Graph Search Algorithms & AI
+###### 5.1 BFS - Shortest Path in Binary Matrix (leetcode 1091)
+###### 5.2 State Representation - Open the Lock (leetcode 752)
+
+
